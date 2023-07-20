@@ -1,27 +1,45 @@
 {
   "tasks": [
-		{
-			"type": "cppbuild",
-			"label": "g++ project dev build",
-			"command": "g++.exe",
-			"args": [
+    {
+      "type": "cppbuild",
+      "label": "g++ file dev build",
+      "command": "g++.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "compiler: g++.exe"
+    },
+    {
+      "type": "cppbuild",
+      "label": "g++ project dev build",
+      "command": "g++.exe",
+      "args": [
         "-fdiagnostics-color=always",
         "-g",
         "${workspaceFolder}/src/*.cpp",
         "-o",
         "${workspaceFolder}/debug/main.exe"
-			],
-			"options": {
-        "cwd": "${workspaceFolder}\\debug"
-			},
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
       "problemMatcher": [
         "$gcc"
       ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
-		}
+      "group": "build",
+      "detail": "compiler: g++.exe"
+    },
   ],
   "version": "2.0.0"
 }
